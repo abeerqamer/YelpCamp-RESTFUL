@@ -8,10 +8,10 @@
 
 	<header class="jumbotron">
 		<div class="container">
-		<h1>Welcome to YelpCamp!</h1>
+			<h1>Welcome to YelpCamp!</h1>
 			<p>View our hand-picked campgrounds from all over the world</p>
 			
-				<a class="btn btn-primary btn-lg" href="/campground/new">Add new campground</a>
+			<a class="btn btn-primary btn-lg" href="/campground/new">Add new campground</a>
 			
 		</div>
 	</header>
@@ -22,35 +22,30 @@
 
 		<%campground.forEach(function(campgrounds){ %>
 
-	    
-	    
-	        <div class="col-md-3 col-sm-6">
-	       
-	        <div class="thumbnail">
-	        	<img width="200px" height="200px" src="<%= campgrounds.image%>">
-	        </div>
-	        <div class="caption">
-	        	 <h4> <%= campgrounds.name%></h4>
-	        </div>
+		
+		
+		<div class="col-md-3 col-sm-6">
+			
+			<div class="thumbnail">
+				<img width="200px" height="200px" src="<%= campgrounds.image%>">
+			</div>
+			<div class="caption">
+				<h4> <%= campgrounds.name%></h4>
+			</div>
 
-	        	<p>
+			<p>
 
-						<a href="/campground/<%=campgrounds._id%>" class="btn btn-primary">More info</a>
-					
-	        	</p>
-
-
-	        </div>
-	        
-	   
+				<a href="/campground/<%=campgrounds._id%>" class="btn btn-primary">More info</a>
+				
+			</p>
 
 
-	    
+		</div>
+		
+		
 
-	    
 
-
-	<% }); %>
+		<% }); %>
 
 
 	</div>
@@ -58,6 +53,6 @@
 	
 
 	
-</div?
+	</div?
 
-<% include partials/footer.ejs %> 
+	<% include partials/footer.ejs %> 
