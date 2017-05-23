@@ -1,0 +1,99 @@
+<% include partials/header.ejs %> 
+
+<div class="container">
+
+	<div class="row">
+
+	<div class="col-md-3">
+
+		<p class="lead">YelpCamp</p>
+		<div class="list-group">
+
+			<li class="list-group-item active">Info 1</li>
+			<li class="list-group-item ">Info 2</li>
+			<li class="list-group-item ">Info 3</li>
+
+		</div>
+	</div>
+
+	<div class="col-md-9">
+
+		<div class="thumbnail">
+			<img class="img-responsive" src="<%=campground.image%>">
+		</div>
+
+		<div class="caption-full">
+
+			<h4 class="pull-right">$9.00/night</h4>
+			<h4><a><%=campground.name%></a></h4>
+			<p><%=campground.description%></p>
+			<p><em>Submitted by, <%=campground.author.username%></em></p>
+
+
+			<%if(current_user && campground.author.id.equals(current_user._id)){%>
+
+				<a href="/campground/<%=campground._id%>/edit" class="btn btn-warning btn-xs">Edit</a>
+
+				<form id="delete-form" action="/campground/<%=campground._id%>?_method=DELETE" method="POST">
+
+					<button class="btn btn-danger btn-xs">delete</button>
+
+				</form>
+
+
+
+
+			<%}%>
+			
+		</div>
+
+
+		<div class="well">
+			<div class="text-right">
+
+				<p><a class="btn btn-success" href="/campground/<%=campground._id%>/comment/new">Comment</a></p>
+
+			</div>
+
+			<%campground.comments.forEach(function(comment){%>
+
+              <div class="row">
+
+              	<div class="col-md-12">
+					<p><strong><%=comment.author.username%></strong></p>
+					<span class="pull-right">10 days ago</span>
+					<p><%=comment.text%></p>
+					<a class="btn btn-xs btn-warning" href="/campground/<%=campground._id%>/comment/<%=comment._id%>/edit">edit</a>
+				</div>
+	
+              </div>
+
+				
+				
+			<%})%>
+
+		</div>
+
+	</div>
+
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<% include partials/footer.ejs %> 
